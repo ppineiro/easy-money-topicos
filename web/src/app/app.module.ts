@@ -12,7 +12,15 @@ import { PropuestaComponent } from "./components/propuesta/propuesta.component";
 import { TransaccionComponent } from "./components/transaccion/transaccion.component";
 import { NavbarComponent } from "./components/shared/navbar/navbar.component";
 import { LoadingComponent } from "./components/shared/loading/loading.component";
-import { NbThemeModule } from "@nebular/theme";
+import {
+  NbThemeModule,
+  NbLayoutModule,
+  NbSidebarModule,
+  NbButtonModule
+} from "@nebular/theme";
+import { RouterModule } from "@angular/router";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 @NgModule({
   declarations: [
@@ -27,7 +35,17 @@ import { NbThemeModule } from "@nebular/theme";
     NavbarComponent,
     LoadingComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, NbThemeModule.forRoot()],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NbThemeModule.forRoot(),
+    NbLayoutModule,
+    NbSidebarModule.forRoot(),
+    NbButtonModule,
+    BrowserAnimationsModule,
+    NbThemeModule.forRoot({ name: 'default' }),
+    NbEvaIconsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
