@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-ingreso-voluntad',
-  templateUrl: './ingreso-voluntad.component.html',
-  styleUrls: ['./ingreso-voluntad.component.css']
+  selector: "app-ingreso-voluntad",
+  templateUrl: "./ingreso-voluntad.component.html"
 })
 export class IngresoVoluntadComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
