@@ -11,8 +11,16 @@ module.exports = router => {
   );
   router.get('/voluntades', validators.find, handlers.find);
   router.get('/voluntades/:id', validators.findOne, handlers.findOne);
-  router.get('/voluntades/:usuario', validators.buscarPorUsuario, handlers.buscarPorUsuario);
-  router.get('/voluntades/:divisa', validators.buscarPorDivisa, handlers.buscarPorDivisa);
+  router.get(
+    '/voluntades/usuario/:usuario',
+    validators.buscarPorUsuario,
+    handlers.buscarPorUsuario,
+  );
+  router.get(
+    '/voluntades/divisa/:divisa',
+    validators.buscarPorDivisa,
+    handlers.buscarPorDivisa,
+  );
 
   router.delete(
     '/voluntades/:id',

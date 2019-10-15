@@ -42,7 +42,6 @@ const update = celebrate({
     divisa: Joi.string().required(),
     monto: Joi.number().required(),
     operacion: Joi.number().required(),
-    activo: Joi.boolean(),
   },
 });
 
@@ -51,5 +50,7 @@ module.exports = {
   findOne,
   create,
   uncreate,
-  update,buscarPorUsuario,buscarPorDivisa
+  update,
+  buscarPorUsuario,
+  buscarPorDivisa,
 };

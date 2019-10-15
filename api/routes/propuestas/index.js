@@ -12,12 +12,12 @@ module.exports = router => {
   router.get('/propuestas', validators.find, handlers.find);
   router.get('/propuestas/:id', validators.findOne, handlers.findOne);
   router.get(
-    '/propuestas/:usuario',
+    '/propuestas/usuario/:usuario',
     validators.buscarPorUsuario,
     handlers.buscarPorUsuario,
   );
   router.get(
-    '/propuestas/:voluntad',
+    '/propuestas/voluntad/:voluntad',
     validators.buscarPorVoluntad,
     handlers.buscarPorVoluntad,
   );

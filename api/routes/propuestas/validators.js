@@ -40,7 +40,6 @@ const update = celebrate({
     usuario: Joi.string().required(),
     voluntad: Joi.string().required(),
     cotizacionOf: Joi.number().required(),
-    activo: Joi.boolean(),
   },
 });
 
