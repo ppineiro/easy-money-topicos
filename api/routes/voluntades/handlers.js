@@ -27,7 +27,7 @@ const findOne = (req, res) => {
 };
 
 const buscarPorUsuario = (req, res) => {
-  Divisa.find({ usuario: req.params.usuario })
+  Voluntad.find({ usuario: req.params.usuario })
     .populate('usuario')
     .populate('divisa')
     .exec((err, query_response) => {
@@ -40,7 +40,7 @@ const buscarPorUsuario = (req, res) => {
 };
 
 const buscarPorDivisa = (req, res) => {
-  Divisa.find({ divisa: req.params.divisa })
+  Voluntad.find({ divisa: req.params.divisa })
     .populate('usuario')
     .populate('divisa')
     .exec((err, query_response) => {

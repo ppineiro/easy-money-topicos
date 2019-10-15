@@ -27,29 +27,29 @@ const findOne = (req, res) => {
 };
 
 const buscarPorUsuario = (req, res) => {
-  Divisa.find({ usuario: req.params.usuario })
-  .populate('usuario')
-  .populate('voluntad')
-  .exec( (err, query_response) => {
-    if (err) {
-      res.status(404).json({ error: 'Propuesta no encontrada.' });
-    } else {
-      res.json(query_response);
-    }
-  });
+  Propuesta.find({ usuario: req.params.usuario })
+    .populate('usuario')
+    .populate('voluntad')
+    .exec((err, query_response) => {
+      if (err) {
+        res.status(404).json({ error: 'Propuesta no encontrada.' });
+      } else {
+        res.json(query_response);
+      }
+    });
 };
 
 const buscarPorVoluntad = (req, res) => {
-  Divisa.find({ voluntad: req.params.voluntad })
-  .populate('usuario')
-  .populate('voluntad')
-  .exec( (err, query_response) => {
-    if (err) {
-      res.status(404).json({ error: 'Propuesta no encontrada.' });
-    } else {
-      res.json(query_response);
-    }
-  });
+  Propuesta.find({ voluntad: req.params.voluntad })
+    .populate('usuario')
+    .populate('voluntad')
+    .exec((err, query_response) => {
+      if (err) {
+        res.status(404).json({ error: 'Propuesta no encontrada.' });
+      } else {
+        res.json(query_response);
+      }
+    });
 };
 
 const create = (req, res) => {
@@ -95,5 +95,7 @@ module.exports = {
   findOne,
   create,
   uncreate,
-  update,buscarPorUsuario, buscarPorVoluntad
+  update,
+  buscarPorUsuario,
+  buscarPorVoluntad,
 };

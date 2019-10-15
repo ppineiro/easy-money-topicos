@@ -33,15 +33,15 @@ const buscarPorCodigo = (req, res) => {
 const create = (req, res) => {
   const { codigoISO, divisa } = req.body;
 
-  const divisa = new Divisa({
+  const Divisa = new Divisa({
     codigoISO,
     divisa,
   });
-  divisa.save(err => {
+  Divisa.save(err => {
     if (err) {
       res.status(400).json({ error: 'La Divisa no se puede agregar.' });
     } else {
-      res.status(201).json(divisa);
+      res.status(201).json(Divisa);
     }
   });
 };

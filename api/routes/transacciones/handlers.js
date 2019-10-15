@@ -27,7 +27,7 @@ const findOne = (req, res) => {
 };
 
 const buscarPorVoluntad = (req, res) => {
-  Divisa.find({ voluntad: req.params.voluntad })
+  Transaccion.find({ voluntad: req.params.voluntad })
     .populate('voluntad')
     .populate('propuesta')
     .exec((err, query_response) => {
@@ -40,7 +40,7 @@ const buscarPorVoluntad = (req, res) => {
 };
 
 const buscarPorPropuesta = (req, res) => {
-  Divisa.find({ propuesta: req.params.propuesta })
+  Transaccion.find({ propuesta: req.params.propuesta })
     .populate('voluntad')
     .populate('propuesta')
     .exec((err, query_response) => {
