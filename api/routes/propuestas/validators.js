@@ -6,6 +6,18 @@ const find = celebrate({
   },
 });
 
+const buscarPorUsuario = celebrate({
+  params: {
+    usuario: Joi.string(),
+  },
+});
+
+const buscarPorVoluntad = celebrate({
+  params: {
+    voluntad: Joi.string(),
+  },
+});
+
 const findOne = celebrate({
   params: {
     id: Joi.string(),
@@ -38,4 +50,6 @@ module.exports = {
   create,
   uncreate,
   update,
+  buscarPorUsuario,
+  buscarPorVoluntad,
 };

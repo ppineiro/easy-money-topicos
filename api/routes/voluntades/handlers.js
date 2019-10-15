@@ -1,23 +1,55 @@
 const Voluntad = require('../../models/voluntad');
 
 const find = (req, res) => {
-  Voluntad.find(req.query, (err, voluntades) => {
-    if (err) {
-      res.status(404).json({ error: 'Algo salió mal.' });
-    } else {
-      res.json(voluntades);
-    }
-  });
+  Voluntad.find({})
+    .populate('usuario')
+    .populate('divisa')
+    .exec((err, voluntades) => {
+      if (err) {
+        res.status(404).json({ error: 'Algo salió mal.' });
+      } else {
+        res.json(voluntades);
+      }
+    });
 };
 
 const findOne = (req, res) => {
-  Voluntad.findOne({ _id: req.params.id }, (err, query_response) => {
-    if (err) {
-      res.status(404).json({ error: 'Voluntad no encontrada.' });
-    } else {
-      res.json(query_response);
-    }
-  });
+  Voluntad.findOne({ _id: req.params.id })
+    .populate('usuario')
+    .populate('divisa')
+    .exec((err, query_response) => {
+      if (err) {
+        res.status(404).json({ error: 'Voluntad no encontrada.' });
+      } else {
+        res.json(query_response);
+      }
+    });
+};
+
+const buscarPorUsuario = (req, res) => {
+  Divisa.find({ usuario: req.params.usuario })
+    .populate('usuario')
+    .populate('divisa')
+    .exec((err, query_response) => {
+      if (err) {
+        res.status(404).json({ error: 'Voluntad no encontrada.' });
+      } else {
+        res.json(query_response);
+      }
+    });
+};
+
+const buscarPorDivisa = (req, res) => {
+  Divisa.find({ divisa: req.params.divisa })
+    .populate('usuario')
+    .populate('divisa')
+    .exec((err, query_response) => {
+      if (err) {
+        res.status(404).json({ error: 'Voluntad no encontrada.' });
+      } else {
+        res.json(query_response);
+      }
+    });
 };
 
 const create = (req, res) => {
@@ -65,4 +97,6 @@ module.exports = {
   create,
   uncreate,
   update,
+  buscarPorDivisa,
+  buscarPorUsuario,
 };

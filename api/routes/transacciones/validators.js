@@ -12,6 +12,18 @@ const findOne = celebrate({
   },
 });
 
+const buscarPorVoluntad = celebrate({
+  params: {
+    voluntad: Joi.string(),
+  },
+});
+
+const buscarPorPropuesta = celebrate({
+  params: {
+    propuesta: Joi.string(),
+  },
+});
+
 const create = celebrate({
   body: {
     voluntad: Joi.string().required(),
@@ -43,4 +55,6 @@ module.exports = {
   create,
   uncreate,
   update,
+  buscarPorVoluntad,
+  buscarPorPropuesta,
 };

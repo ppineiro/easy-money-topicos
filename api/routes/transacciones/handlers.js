@@ -1,23 +1,55 @@
 const Transaccion = require('../../models/transaccion');
 
 const find = (req, res) => {
-  Transaccion.find(req.query, (err, transacciones) => {
-    if (err) {
-      res.status(404).json({ error: 'Algo salió mal.' });
-    } else {
-      res.json(transacciones);
-    }
-  });
+  Transaccion.find({})
+    .populate('voluntad')
+    .populate('propuesta')
+    .exec((err, transacciones) => {
+      if (err) {
+        res.status(404).json({ error: 'Algo salió mal.' });
+      } else {
+        res.json(transacciones);
+      }
+    });
 };
 
 const findOne = (req, res) => {
-  Transaccion.findOne({ _id: req.params.id }, (err, query_response) => {
-    if (err) {
-      res.status(404).json({ error: 'Transaccion no encontrada.' });
-    } else {
-      res.json(query_response);
-    }
-  });
+  Transaccion.findOne({ _id: req.params.id })
+    .populate('voluntad')
+    .populate('propuesta')
+    .exec((err, query_response) => {
+      if (err) {
+        res.status(404).json({ error: 'Transaccion no encontrada.' });
+      } else {
+        res.json(query_response);
+      }
+    });
+};
+
+const buscarPorVoluntad = (req, res) => {
+  Divisa.find({ voluntad: req.params.voluntad })
+    .populate('voluntad')
+    .populate('propuesta')
+    .exec((err, query_response) => {
+      if (err) {
+        res.status(404).json({ error: 'Transaccion no encontrada.' });
+      } else {
+        res.json(query_response);
+      }
+    });
+};
+
+const buscarPorPropuesta = (req, res) => {
+  Divisa.find({ propuesta: req.params.propuesta })
+    .populate('voluntad')
+    .populate('propuesta')
+    .exec((err, query_response) => {
+      if (err) {
+        res.status(404).json({ error: 'Transaccion no encontrada.' });
+      } else {
+        res.json(query_response);
+      }
+    });
 };
 
 const create = (req, res) => {
@@ -73,4 +105,6 @@ module.exports = {
   create,
   uncreate,
   update,
+  buscarPorVoluntad,
+  buscarPorPropuesta,
 };

@@ -11,6 +11,16 @@ module.exports = router => {
   );
   router.get('/propuestas', validators.find, handlers.find);
   router.get('/propuestas/:id', validators.findOne, handlers.findOne);
+  router.get(
+    '/propuestas/:usuario',
+    validators.buscarPorUsuario,
+    handlers.buscarPorUsuario,
+  );
+  router.get(
+    '/propuestas/:voluntad',
+    validators.buscarPorVoluntad,
+    handlers.buscarPorVoluntad,
+  );
 
   router.delete(
     '/propuestas/:id',

@@ -1,17 +1,49 @@
 const Propuesta = require('../../models/propuesta');
 
 const find = (req, res) => {
-  Propuesta.find(req.query, (err, propuestas) => {
+  Propuesta.find({})
+    .populate('usuario')
+    .populate('voluntad')
+    .exec((err, propuestas) => {
+      if (err) {
+        res.status(404).json({ error: 'Algo salió mal.' });
+      } else {
+        res.json(propuestas);
+      }
+    });
+};
+
+const findOne = (req, res) => {
+  Propuesta.findOne({ _id: req.params.id })
+    .populate('usuario')
+    .populate('voluntad')
+    .exec((err, query_response) => {
+      if (err) {
+        res.status(404).json({ error: 'Propuesta no encontrada.' });
+      } else {
+        res.json(query_response);
+      }
+    });
+};
+
+const buscarPorUsuario = (req, res) => {
+  Divisa.find({ usuario: req.params.usuario })
+  .populate('usuario')
+  .populate('voluntad')
+  .exec( (err, query_response) => {
     if (err) {
-      res.status(404).json({ error: 'Algo salió mal.' });
+      res.status(404).json({ error: 'Propuesta no encontrada.' });
     } else {
-      res.json(propuestas);
+      res.json(query_response);
     }
   });
 };
 
-const findOne = (req, res) => {
-  Propuesta.findOne({ _id: req.params.id }, (err, query_response) => {
+const buscarPorVoluntad = (req, res) => {
+  Divisa.find({ voluntad: req.params.voluntad })
+  .populate('usuario')
+  .populate('voluntad')
+  .exec( (err, query_response) => {
     if (err) {
       res.status(404).json({ error: 'Propuesta no encontrada.' });
     } else {
@@ -63,5 +95,5 @@ module.exports = {
   findOne,
   create,
   uncreate,
-  update,
+  update,buscarPorUsuario, buscarPorVoluntad
 };

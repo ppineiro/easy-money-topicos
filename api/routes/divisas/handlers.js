@@ -21,7 +21,7 @@ const findOne = (req, res) => {
 };
 
 const buscarPorCodigo = (req, res) => {
-  Divisa.find({ codigoISO: req.params.codigoISO }, (err, query_response) => {
+  Divisa.find({ codigoISO: req.params.codigo }, (err, query_response) => {
     if (err) {
       res.status(404).json({ error: 'Divisa no encontrada.' });
     } else {

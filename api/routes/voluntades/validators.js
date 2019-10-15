@@ -12,6 +12,18 @@ const findOne = celebrate({
   },
 });
 
+const buscarPorUsuario = celebrate({
+  params: {
+    usuario: Joi.string(),
+  },
+});
+
+const buscarPorDivisa = celebrate({
+  params: {
+    divisa: Joi.string(),
+  },
+});
+
 const create = celebrate({
   body: {
     usuario: Joi.string().required(),
@@ -39,5 +51,5 @@ module.exports = {
   findOne,
   create,
   uncreate,
-  update,
+  update,buscarPorUsuario,buscarPorDivisa
 };

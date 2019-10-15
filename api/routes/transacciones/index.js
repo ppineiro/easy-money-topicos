@@ -11,6 +11,16 @@ module.exports = router => {
   );
   router.get('/transacciones', validators.find, handlers.find);
   router.get('/transacciones/:id', validators.findOne, handlers.findOne);
+  router.get(
+    '/transacciones/:voluntad',
+    validators.buscarPorVoluntad,
+    handlers.buscarPorVoluntad,
+  );
+  router.get(
+    '/transacciones/:propuesta',
+    validators.buscarPorPropuesta,
+    handlers.buscarPorPropuesta,
+  );
 
   router.delete(
     '/transacciones/:id',

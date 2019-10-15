@@ -7,8 +7,8 @@ const find = celebrate({
 });
 
 const buscarPorCodigo = celebrate({
-  query: {
-    codigoISO: Joi.string(),
+  params: {
+    codigo: Joi.string(),
   },
 });
 
