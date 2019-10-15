@@ -19,8 +19,8 @@ import {
   NbButtonModule
 } from "@nebular/theme";
 import { RouterModule } from "@angular/router";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NbEvaIconsModule } from "@nebular/eva-icons";
 
 @NgModule({
   declarations: [
@@ -43,7 +43,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     NbSidebarModule.forRoot(),
     NbButtonModule,
     BrowserAnimationsModule,
-    NbThemeModule.forRoot({ name: 'default' }),
+    NbThemeModule.forRoot({ name: "default" }),
     NbEvaIconsModule
   ],
   providers: [],
