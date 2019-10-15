@@ -3,124 +3,57 @@ const sendEmail = require('../../utils/email');
 const random = require('../../utils/random');
 
 const find = (req, res) => {
-  Usuario.find({})
-    .populate('usuarioPerfilId')
-    .exec((err, users) => {
-      if (err) throw err;
-      const filteredUsers = users.map(user => {
-        const {
-          _id,
-          usuarioNombre,
-          usuarioEmail,
-          usuarioPerfilId,
-          createdAt,
-          updatedAt,
-        } = user;
-        return {
-          _id,
-          usuarioNombre,
-          usuarioEmail,
-          usuarioPerfilId,
-          createdAt,
-          updatedAt,
-        };
-      });
-      res.json(filteredUsers);
+  Usuario.find((err, users) => {
+    if (err) throw err;
+    const filteredUsers = users.map(user => {
+      const { _id, nombre, email, promedioCalif, createdAt, updatedAt } = user;
+      return {
+        _id,
+        nombre,
+        email,
+        promedioCalif,
+        createdAt,
+        updatedAt,
+      };
     });
-};
-
-const findActivos = (req, res) => {
-  Usuario.find({ usuarioActivo: true })
-    .populate('usuarioPerfilId')
-    .exec((err, users) => {
-      if (err) throw err;
-      const filteredUsers = users.map(user => {
-        const {
-          _id,
-          usuarioNombre,
-          usuarioEmail,
-          usuarioPerfilId,
-          createdAt,
-          updatedAt,
-        } = user;
-        return {
-          _id,
-          usuarioNombre,
-          usuarioEmail,
-          usuarioPerfilId,
-          createdAt,
-          updatedAt,
-        };
-      });
-      res.json(filteredUsers);
-    });
+    res.json(filteredUsers);
+  });
 };
 
 const findOne = (req, res) => {
-  Usuario.findById(req.params.id)
-    .populate('usuarioPerfilId')
-    .exec((err, user) => {
-      if (user !== undefined && user !== null) {
-        const {
-          _id,
-          usuarioNombre,
-          usuarioEmail,
-          usuarioPerfilId,
-          createdAt,
-          updatedAt,
-        } = user;
-        res.json({
-          _id,
-          usuarioNombre,
-          usuarioEmail,
-          usuarioPerfilId,
-          createdAt,
-          updatedAt,
-        });
-      } else {
-        res.sendStatus(404);
-      }
-    });
+  Usuario.findById(req.params.id, (err, user) => {
+    if (user !== undefined && user !== null) {
+      const { _id, nombre, email, promedioCalif, createdAt, updatedAt } = user;
+      res.json({
+        _id,
+        nombre,
+        email,
+        promedioCalif,
+        createdAt,
+        updatedAt,
+      });
+    } else {
+      res.sendStatus(404);
+    }
+  });
 };
 
-const buscarPorPerfil = (req, res) => {
-  Usuario.find(
-    {
-      perfil: req.params.usuarioPerfilId,
-    },
-    (err, query_response) => {
-      if (err) {
-        res.status(404).json({
-          error: 'Producto no encontrado.',
-        });
-      } else {
-        res.json(query_response);
-      }
-    },
-  );
-};
 const create = (req, res) => {
-  const {
-    usuarioNombre,
-    usuarioEmail,
-    usuarioPassword,
-    usuarioPerfilId,
-  } = req.body;
+  const { nombre, email, password, ubicacion } = req.body;
   const user = new Usuario({
-    usuarioActivo: true,
-    usuarioNombre,
-    usuarioEmail,
-    usuarioPassword,
-    usuarioPerfilId,
-    usuarioFechaCreacion: Date.now(),
+    nombre,
+    email,
+    password,
+    ubicacion,
+    promedioCalif: 0,
   });
   user.save(err => {
     if (err) {
       res.sendStatus(400);
     } else {
       res.status(201).json({
-        usuarioNombre,
-        usuarioEmail,
+        nombre,
+        email,
       });
     }
   });
@@ -162,7 +95,7 @@ const changePassword = (req, res) => {
   Usuario.findById(req.params.id, (err, u) => {
     if (u !== undefined && u !== null) {
       const user = u;
-      user.usuarioPassword = req.body.newPassword;
+      user.password = req.body.newPassword;
       user.save(error => {
         if (error) {
           res.sendStatus(400);
@@ -177,7 +110,7 @@ const changePassword = (req, res) => {
 const forgotPassword = (req, res) => {
   Usuario.findOne(
     {
-      usuarioEmail: req.body.usuarioEmail,
+      email: req.body.email,
     },
     (err, user) => {
       if (err) {
@@ -189,14 +122,14 @@ const forgotPassword = (req, res) => {
         sendEmail(
           {
             recipient: user.usuarioEmail,
-            subject: 'Recuperación de contraseña',
-            text: `Tu código es:\n${codeStr}`,
+            subject: 'Nueva contraseña',
+            text: `Hola! Tu nueva contraseña es:\n${codeStr}`,
           },
           error => {
             if (error) {
               res.sendStatus(500);
             }
-            user.passwordRecoveryCode = codeStr;
+            user.password = codeStr;
             user.save();
             res.sendStatus(200);
           },
@@ -208,40 +141,12 @@ const forgotPassword = (req, res) => {
   );
 };
 
-const resetPassword = (req, res) => {
-  const { usuarioEmail, code, usuarioPassword } = req.body;
-  Usuario.findOne(
-    {
-      usuarioEmail,
-    },
-    (err, user) => {
-      if (err) {
-        res.sendStatus(400);
-      }
-      if (user && code === user.passwordRecoveryCode) {
-        user.usuarioPassword = usuarioPassword;
-        user.passwordRecoveryCode = null;
-        user.save();
-        res.sendStatus(200);
-      } else {
-        res.sendStatus(400);
-      }
-    },
-  );
-};
-
-const teapot = (req, res) => res.sendStatus(418);
-
 module.exports = {
   find,
-  findActivos,
   findOne,
   create,
   uncreate,
   update,
   changePassword,
-  teapot,
   forgotPassword,
-  resetPassword,
-  buscarPorPerfil,
 };
