@@ -1,10 +1,13 @@
 const nodemailer = require('nodemailer');
 
-const user = '';
-const pass = '';
+const user = 'easymoney.ucu';
+const pass = 'easymoney2019';
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
+  requireTLS: true,
   auth: {
     user,
     pass,
