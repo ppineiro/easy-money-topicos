@@ -38,6 +38,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ListaPropuestasAVoluntadesComponent } from './components/lista-propuestas-a-voluntades/lista-propuestas-a-voluntades.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     LoadingComponent,
     DashboardComponent,
     NavbarComponent,
+    ListaPropuestasAVoluntadesComponent,
   ],
   imports: [
     BrowserModule,
