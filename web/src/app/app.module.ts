@@ -17,10 +17,23 @@ import {
   NbLayoutModule,
   NbSidebarModule,
   NbButtonModule,
+  NbActionsModule,
+  NbCardModule,
+  NbMenuModule,
+  NbInputModule,
+  NbUserModule,
+  NbCheckboxModule,
+  NbRadioModule,
+  NbDatepickerModule,
+  NbSelectModule,
+  NbIconModule,
 } from '@nebular/theme';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -34,10 +47,23 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     TransaccionComponent,
     NavbarComponent,
     LoadingComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
+    FormsModule,
+    NbInputModule,
+    NbCardModule,
+    NbButtonModule,
+    NbActionsModule,
+    NbUserModule,
+    NbCheckboxModule,
+    NbRadioModule,
+    NbDatepickerModule,
+    NbSelectModule,
+    NbIconModule,
     NbThemeModule.forRoot(),
     NbLayoutModule,
     NbSidebarModule.forRoot(),
@@ -45,6 +71,9 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbEvaIconsModule,
+    NbActionsModule,
+    NbCardModule,
+    NbMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

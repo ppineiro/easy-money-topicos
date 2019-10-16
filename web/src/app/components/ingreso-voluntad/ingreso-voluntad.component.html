@@ -1,1 +1,29 @@
-<p>ingreso-voluntad works!</p>
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>Ingreso de Voluntad</nb-card-header>
+      <nb-card-body>
+        <div class="full-name-inputs">
+          <nb-select placeholder="Divisa" shape="round" [(ngModel)]="divisa">
+            <nb-option *ngFor="let divisa of divisas" value="{{ divisa.id }}">{{
+              divisa.divisa
+            }}</nb-option>
+          </nb-select>
+        </div>
+
+        <input
+          shape="round"
+          type="number"
+          nbInput
+          fullWidth
+          placeholder="Monto"
+          [(ngModel)]="monto"
+        />
+
+        <button nbButton shape="round" (click)="insertVoluntad()">
+          Confirmar
+        </button>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
