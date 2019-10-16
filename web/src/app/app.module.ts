@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -17,10 +18,13 @@ import {
   NbLayoutModule,
   NbSidebarModule,
   NbButtonModule,
+  NbCardModule,
+  NbListModule,
 } from '@nebular/theme';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { VoluntadTestComponent } from './components/voluntad-test/voluntad-test.component';
 
 @NgModule({
   declarations: [
@@ -34,17 +38,22 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     TransaccionComponent,
     NavbarComponent,
     LoadingComponent,
+    VoluntadTestComponent,
   ],
   imports: [
+    HttpClientModule, // import the module
+
     BrowserModule,
     AppRoutingModule,
     NbThemeModule.forRoot(),
     NbLayoutModule,
     NbSidebarModule.forRoot(),
     NbButtonModule,
+    NbCardModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbEvaIconsModule,
+    NbListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

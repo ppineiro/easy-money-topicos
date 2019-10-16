@@ -1,5 +1,5 @@
-import { VoluntadModel } from './../../services/models/voluntad.model';
-import { VoluntadesService } from './../../services/voluntades.service';
+import { VoluntadModel } from '../../services/models/voluntad.model';
+import { VoluntadesService } from '../../services/voluntades.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -11,18 +11,18 @@ export class VoluntadComponent {
   header: string;
   reputacion: number;
   usernombre: string;
-  data: VoluntadModel[] = [];
 
   constructor(private service: VoluntadesService) {
     this.getData();
   }
 
   getData() {
-    this.service.getVoluntades().subscribe(eventos => {
-      console.log(eventos);
-      this.data = this.sustituirIntegracionesPorValores(eventos);
-      console.log(this.data);
-      return this.data;
+    let data: VoluntadModel[] = [];
+    this.service.getVoluntades().subscribe(voluntades => {
+      console.log(voluntades);
+      data = this.sustituirIntegracionesPorValores(voluntades);
+      console.log(data);
+      return data;
     });
   }
 
