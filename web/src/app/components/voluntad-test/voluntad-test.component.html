@@ -1,15 +1,7 @@
-<div class="card-row">
-  <div class="card-col">
-    <nb-card size="tiny">
-      <nb-card-header>{{header}}</nb-card-header>
-      <nb-card-body>
-        <p>Nombre del usuario: {{ usernombre }}</p>
-      </nb-card-body>
-      <nb-card-footer>REPUTACION: {{reputacion}}</nb-card-footer>
-    </nb-card>
-
-  </div>
-  <div class="card-col">
-
-  </div>
-</div>
+<ul>
+  <li *ngFor="let resultad of resultado">
+    <app-voluntad [header]="resultad.header" [reputacion]="resultad.reputacion" [usernombre]="resultad.nombre"
+      [voluntadid]="resultad.voluntadid">
+    </app-voluntad>
+  </li>
+</ul>
