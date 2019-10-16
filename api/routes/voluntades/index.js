@@ -6,7 +6,7 @@ module.exports = router => {
   router.post(
     '/voluntades',
     //authorization,
-    validators.create,
+    // validators.create,
     handlers.create,
   );
   router.get('/voluntades', validators.find, handlers.find);

@@ -6,7 +6,7 @@ module.exports = router => {
   router.post(
     '/divisas',
     //authorization,
-    validators.create,
+    // validators.create,
     handlers.create,
   );
   router.get('/divisas', validators.find, handlers.find);

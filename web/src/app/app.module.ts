@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -31,13 +32,15 @@ import {
   NbWindowModule,
   NbToastrModule,
   NbDialogService,
+  NbListModule,
 } from '@nebular/theme';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ListaPropuestasAVoluntadesComponent } from './components/lista-propuestas-a-voluntades/lista-propuestas-a-voluntades.component';
+import { VoluntadTestComponent } from './components/voluntad-test/voluntad-test.component';
 
 @NgModule({
   declarations: [
@@ -53,8 +56,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     LoadingComponent,
     DashboardComponent,
     NavbarComponent,
+    ListaPropuestasAVoluntadesComponent,
+    VoluntadTestComponent,
   ],
   imports: [
+    HttpClientModule, // import the module
+
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -80,8 +87,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     NbCheckboxModule,
     NbRadioModule,
     NbIconModule,
+    NbCardModule,
     BrowserAnimationsModule,
     NbEvaIconsModule,
+    NbListModule,
   ],
   providers: [NbDialogService],
   bootstrap: [AppComponent],
