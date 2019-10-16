@@ -30,7 +30,7 @@ const uncreate = celebrate({ params: { id: Joi.string() } });
 const update = celebrate({
   params: { id: Joi.string() },
   body: {
-    codigoISO: Joi.boolean().required(),
+    codigoISO: Joi.string().required(),
     divisa: Joi.string().required(),
   },
 });
