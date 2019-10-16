@@ -18,7 +18,7 @@ export class IngresoVoluntadComponent {
   usuario: string;
 
   divisas = [];
-  operaciones = [{ 1: 'Compra' }, { 2: 'Venta' }];
+  operaciones = [{ id: 1, nombre: 'Compra' }, { id: 2, nombre: 'Venta' }];
   usuarios = [];
 
   constructor(
@@ -53,7 +53,7 @@ export class IngresoVoluntadComponent {
   getDivisas() {
     this.divisasService.getDivisas().subscribe(res => {
       for (const i of res) {
-        var temp = new Object();
+        const temp = new Object();
         temp['id'] = i._id;
         temp['codigoISO'] = i.codigoISO;
         temp['divisa'] = i.divisa;
@@ -66,7 +66,7 @@ export class IngresoVoluntadComponent {
   getUsuarios() {
     this.usuariosService.getUsuarios().subscribe(res => {
       for (const i of res) {
-        var temp = new Object();
+        const temp = new Object();
         temp['id'] = i._id;
         temp['nombre'] = i.nombre;
         temp['email'] = i.email;
