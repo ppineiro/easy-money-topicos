@@ -47,7 +47,13 @@ export class IngresoVoluntadComponent {
     console.log(this.crearVoluntadModel());
     this.voluntadesService
       .insertVoluntad(this.crearVoluntadModel())
-      .subscribe(resp => console.log(resp));
+      .subscribe(resp => {
+        this.monto = 0;
+        this.divisa = '';
+        this.operacion = 0;
+        this.usuario = '';
+        console.log(resp);
+      });
   }
 
   getDivisas() {
