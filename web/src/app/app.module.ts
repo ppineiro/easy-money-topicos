@@ -37,6 +37,7 @@ import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VoluntadesListaComponent } from './components/voluntades-lista/voluntades-lista.component';
 import { FichaVoluntadComponent } from './components/ficha-voluntad/ficha-voluntad.component';
+import { PropuestaComponent } from './components/propuesta/propuesta.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { FichaVoluntadComponent } from './components/ficha-voluntad/ficha-volunt
     VoluntadesListaComponent,
     PropuestasComponent,
     FichaVoluntadComponent,
+    PropuestaComponent,
   ],
   imports: [
     HttpClientModule, // import the module
