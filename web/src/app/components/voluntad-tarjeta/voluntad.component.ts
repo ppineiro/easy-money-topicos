@@ -1,7 +1,7 @@
 import { VoluntadModel } from '../../services/models/voluntad.model';
 import { VoluntadesService } from '../../services/voluntades.service';
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, UrlSegment } from '@angular/router';
 
 @Component({
   selector: 'app-voluntad',
@@ -22,13 +22,25 @@ export class VoluntadComponent {
   @Input() // <-----
   reputacion: number;
 
+  isInDashboard = false;
   data: VoluntadModel[] = [];
   numbers: Array<number>;
 
-  constructor(private service: VoluntadesService, private router: Router) {
+  constructor(
+    private service: VoluntadesService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+  ) {
     // this.getData();
 
     this.numbers = Array(3).fill(4); // [4,4,4,4,4]
+
+    this.activatedRoute.url.subscribe(res => {
+      console.log(res.toString());
+      if (res.toString().includes('dashboard')) {
+        this.isInDashboard = true;
+      }
+    });
   }
 
   // getData() {

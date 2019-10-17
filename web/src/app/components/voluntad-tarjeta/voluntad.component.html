@@ -7,7 +7,7 @@
         <h4>Nombre: {{ usernombre }}</h4>
       </nb-card-body>
       <nb-card-footer align="right">
-        <button nbButton shape="round" (click)="verVoluntad()">
+        <button *ngIf="isInDashboard" nbButton shape="round" (click)="verVoluntad()">
           Ver
         </button>
         <div class="calificacion">

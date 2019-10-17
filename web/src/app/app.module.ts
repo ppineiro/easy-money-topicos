@@ -37,6 +37,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VoluntadesListaComponent } from './components/voluntades-lista/voluntades-lista.component';
 import { FichaVoluntadComponent } from './components/ficha-voluntad/ficha-voluntad.component';
 import { PropuestaComponent } from './components/propuesta/propuesta.component';
+import { TransaccionComponent } from './components/transaccion/transaccion.component';
 
 @NgModule({
   declarations: [
@@ -46,10 +47,10 @@ import { PropuestaComponent } from './components/propuesta/propuesta.component';
     NavbarComponent,
     LoadingComponent,
     DashboardComponent,
-    NavbarComponent,
     VoluntadesListaComponent,
     FichaVoluntadComponent,
     PropuestaComponent,
+    TransaccionComponent,
   ],
   imports: [
     HttpClientModule, // import the module
@@ -82,7 +83,7 @@ import { PropuestaComponent } from './components/propuesta/propuesta.component';
     NbCardModule,
     BrowserAnimationsModule,
     NbEvaIconsModule,
-    NbListModule
+    NbListModule,
   ],
   providers: [NbDialogService],
   bootstrap: [AppComponent],

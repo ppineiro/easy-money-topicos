@@ -1,6 +1,7 @@
 import { PropuestaModel } from './../../services/models/propuesta.model';
 import { PropuestasService } from './../../services/propuestas.service';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-propuesta',
@@ -15,9 +16,11 @@ export class PropuestaComponent {
   @Input() // <-----
   monto: number;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   rechazar() {}
 
-  aceptar() {}
+  aceptar() {
+    this.router.navigateByUrl('/transaccion');
+  }
 }
