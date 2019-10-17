@@ -56,7 +56,6 @@ const create = (req, res) => {
   const {
     voluntad,
     propuesta,
-    fechaHora,
     cotizacionBCU,
     califUsuarioVoluntad,
     califUsuarioPropuesta,
@@ -65,7 +64,7 @@ const create = (req, res) => {
   const transaccion = new Transaccion({
     voluntad,
     propuesta,
-    fechaHora,
+    fechaHora: Date.now(),
     cotizacionBCU,
     califUsuarioVoluntad,
     califUsuarioPropuesta,

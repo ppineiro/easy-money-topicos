@@ -28,7 +28,6 @@ const create = celebrate({
   body: {
     voluntad: Joi.string().required(),
     propuesta: Joi.string().required(),
-    fechaHora: Joi.date().required(),
     cotizacionBCU: Joi.number().required(),
     califUsuarioVoluntad: Joi.number().required(),
     califUsuarioPropuesta: Joi.number().required(),
