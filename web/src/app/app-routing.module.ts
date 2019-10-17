@@ -1,5 +1,4 @@
 import { FichaVoluntadComponent } from './components/ficha-voluntad/ficha-voluntad.component';
-import { PropuestaComponent } from './components/propuesta/propuesta.component';
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
