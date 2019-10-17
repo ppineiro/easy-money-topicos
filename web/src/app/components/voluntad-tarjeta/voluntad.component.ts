@@ -1,5 +1,5 @@
-import { VoluntadModel } from './../../services/models/voluntad.model';
-import { VoluntadesService } from './../../services/voluntades.service';
+import { VoluntadModel } from '../../services/models/voluntad.model';
+import { VoluntadesService } from '../../services/voluntades.service';
 import { Component, Input } from '@angular/core';
 
 @Component({

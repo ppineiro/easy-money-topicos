@@ -1,20 +1,21 @@
-import { VoluntadModel } from './../../services/models/voluntad.model';
-import { VoluntadesService } from './../../services/voluntades.service';
+import { VoluntadModel } from '../../services/models/voluntad.model';
+import { VoluntadesService } from '../../services/voluntades.service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'test',
-  templateUrl: './voluntad-test.component.html',
-
+  selector: 'app-voluntades-lista',
+  templateUrl: './voluntades-lista.component.html',
   providers: [VoluntadesService],
 })
-export class VoluntadTestComponent {
+export class VoluntadesListaComponent {
   data: VoluntadModel[] = [];
   header: string;
   reputacion: number;
+
   resultado = [];
 
-  constructor(private service: VoluntadesService) {
+  constructor(private service: VoluntadesService, private router: Router) {
     this.getData();
   }
 
@@ -43,5 +44,12 @@ export class VoluntadTestComponent {
       }
     }
     return this.resultado;
+  }
+
+  verVoluntad(item: any) {
+    let voluntadId;
+    voluntadId = this.resultado[0].id;
+
+    this.router.navigate(['/voluntad', voluntadId]);
   }
 }

@@ -1,4 +1,4 @@
-import { VoluntadComponent } from './components/voluntad/voluntad.component';
+import { VoluntadComponent } from './components/voluntad-tarjeta/voluntad.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { IngresoVoluntadComponent } from './components/ingreso-voluntad/ingreso-voluntad.component';
@@ -7,9 +7,12 @@ import { ListaPropuestasAVoluntadesComponent } from './components/lista-propuest
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'lista-propuestas-a-voluntades', component: ListaPropuestasAVoluntadesComponent},
+  {
+    path: 'lista-propuestas-a-voluntades',
+    component: ListaPropuestasAVoluntadesComponent,
+  },
   { path: 'ingreso-voluntad', component: IngresoVoluntadComponent },
-  { path: 'voluntad', component: VoluntadComponent },
+  { path: 'voluntad/:id', component: VoluntadComponent },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: '' },
 ];

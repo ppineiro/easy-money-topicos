@@ -4,13 +4,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegistroComponent } from './components/registro/registro.component';
 import { IngresoVoluntadComponent } from './components/ingreso-voluntad/ingreso-voluntad.component';
-import { VoluntadComponent } from './components/voluntad/voluntad.component';
-import { ListaVoluntadesComponent } from './components/lista-voluntades/lista-voluntades.component';
-import { PropuestaComponent } from './components/propuesta/propuesta.component';
-import { TransaccionComponent } from './components/transaccion/transaccion.component';
+import { VoluntadComponent } from './components/voluntad-tarjeta/voluntad.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import {
@@ -40,24 +35,21 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ListaPropuestasAVoluntadesComponent } from './components/lista-propuestas-a-voluntades/lista-propuestas-a-voluntades.component';
-import { VoluntadTestComponent } from './components/voluntad-test/voluntad-test.component';
+import { VoluntadesListaComponent } from './components/voluntades-lista/voluntades-lista.component';
+import { FichaVoluntadComponent } from './components/ficha-voluntad/ficha-voluntad.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegistroComponent,
     IngresoVoluntadComponent,
     VoluntadComponent,
-    ListaVoluntadesComponent,
-    PropuestaComponent,
-    TransaccionComponent,
     NavbarComponent,
     LoadingComponent,
     DashboardComponent,
     NavbarComponent,
     ListaPropuestasAVoluntadesComponent,
-    VoluntadTestComponent,
+    VoluntadesListaComponent,
+    FichaVoluntadComponent,
   ],
   imports: [
     HttpClientModule, // import the module
