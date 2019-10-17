@@ -1,25 +1,25 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { VoluntadModel } from "./models/voluntad.model";
-import { VoluntadCreateModel } from "./models/voluntad.create.model";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { VoluntadModel } from './models/voluntad.model';
+import { VoluntadCreateModel } from './models/voluntad.create.model';
 
-const API_URL = "http://localhost:8000/voluntades";
+const API_URL = 'http://localhost:8000/voluntades';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root',
 })
 export class VoluntadesService {
   constructor(private http: HttpClient) {
-    console.log("Service Listo");
+    console.log('Service Listo');
   }
 
   getVoluntades(): Observable<VoluntadModel[]> {
     return this.http.get<VoluntadModel[]>(API_URL);
   }
 
-  getVoluntad(id: string): Observable<VoluntadModel[]> {
-    return this.http.get<VoluntadModel[]>(`${API_URL}/${id}`);
+  getVoluntad(id: string): Observable<VoluntadModel> {
+    return this.http.get<VoluntadModel>(`${API_URL}/${id}`);
   }
 
   getVoluntadesPorUsuario(usuario: string): Observable<VoluntadModel[]> {

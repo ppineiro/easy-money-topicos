@@ -1,6 +1,7 @@
 import { VoluntadModel } from '../../services/models/voluntad.model';
 import { VoluntadesService } from '../../services/voluntades.service';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-voluntad',
@@ -24,7 +25,7 @@ export class VoluntadComponent {
   data: VoluntadModel[] = [];
   numbers: Array<number>;
 
-  constructor(private service: VoluntadesService) {
+  constructor(private service: VoluntadesService, private router: Router) {
     // this.getData();
 
     this.numbers = Array(3).fill(4); // [4,4,4,4,4]
@@ -54,4 +55,8 @@ export class VoluntadComponent {
   //   }
   //   return resultado;
   // }
+
+  verVoluntad() {
+    this.router.navigate(['/ficha-voluntad', this.voluntadid]);
+  }
 }

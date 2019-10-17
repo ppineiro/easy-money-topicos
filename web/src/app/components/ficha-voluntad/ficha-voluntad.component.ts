@@ -27,7 +27,8 @@ export class FichaVoluntadComponent {
   ) {
     this.activatedRoute.params.subscribe(params => {
       this.voluntadesService.getVoluntad(params.id).subscribe(res => {
-        const voluntad = res[0];
+        const voluntad = res;
+        console.log(res);
         this.voluntadid = voluntad._id;
         this.divisa = voluntad.divisa.codigoISO;
         this.monto = voluntad.monto;

@@ -1,16 +1,12 @@
-<ul>
-  <li *ngFor="let r of resultado">
-    <app-voluntad
-      [voluntadid]="r.id"
-      [voluntad]="r.voluntad"
-      [usernombre]="r.nombre"
-      [reputacion]="r.reputacion"
-      [divisa]="r.divisa"
-      [monto]="r.monto"
-    >
-    </app-voluntad>
-    <button nbButton shape="round" (click)="verVoluntad(r.id)">
-      Ver
-    </button>
-  </li>
-</ul>
+<div class="text-center align-center">
+  <app-voluntad
+    *ngFor="let r of resultado"
+    [voluntadid]="r.id"
+    [voluntad]="r.voluntad"
+    [usernombre]="r.nombre"
+    [reputacion]="r.reputacion"
+    [divisa]="r.divisa"
+    [monto]="r.monto"
+  >
+  </app-voluntad>
+</div>

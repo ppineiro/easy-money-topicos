@@ -15,9 +15,9 @@ export class PropuestaComponent {
   @Input() // <-----
   monto: number;
 
-  total: number;
+  constructor() {}
 
-  constructor() {
-    this.total = this.cotizacion * this.monto;
-  }
+  rechazar() {}
+
+  aceptar() {}
 }

@@ -19,7 +19,7 @@ export class VoluntadesListaComponent {
 
   resultado = [];
 
-  constructor(private service: VoluntadesService, private router: Router) {
+  constructor(private service: VoluntadesService) {
     this.getData();
   }
 
@@ -50,12 +50,5 @@ export class VoluntadesListaComponent {
     }
 
     return this.resultado;
-  }
-
-  verVoluntad(item: any) {
-    let voluntadId;
-    voluntadId = this.resultado[0].id;
-
-    this.router.navigate(['/ficha-voluntad', voluntadId]);
   }
 }

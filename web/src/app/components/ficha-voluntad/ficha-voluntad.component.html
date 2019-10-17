@@ -1,20 +1,29 @@
-<nb-layout-header fixed><app-navbar></app-navbar></nb-layout-header>
-<app-voluntad
-  [voluntadid]="voluntadid"
-  [voluntad]="voluntad"
-  [usernombre]="nombre"
-  [reputacion]="reputacion"
-  [divisa]="divisa"
-  [monto]="monto"
->
-</app-voluntad>
-<ul>
-  <li *ngFor="let r of resultado">
-    <app-propuesta
-      [username]="r.username"
-      [cotizacion]="r.cotizacion"
-      [monto]="r.monto"
+<nb-layout>
+  <nb-layout-header fixed><app-navbar></app-navbar></nb-layout-header>
+  <nb-layout-column
+    ><app-voluntad
+      [voluntadid]="voluntadid"
+      [voluntad]="voluntad"
+      [usernombre]="nombre"
+      [reputacion]="reputacion"
+      [divisa]="divisa"
+      [monto]="monto"
     >
-    </app-propuesta>
-  </li>
-</ul>
+    </app-voluntad>
+
+    <nb-card>
+      <nb-card-header>Propuestas presentadas para esta voluntad</nb-card-header>
+      <nb-card-body>
+        <app-propuesta
+          *ngFor="let r of resultado"
+          [username]="r.username"
+          [cotizacion]="r.cotizacion"
+          [monto]="r.monto"
+        >
+        </app-propuesta>
+      </nb-card-body>
+    </nb-card>
+
+    ></nb-layout-column
+  >
+</nb-layout>

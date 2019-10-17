@@ -82,7 +82,7 @@ import { PropuestaComponent } from './components/propuesta/propuesta.component';
     NbCardModule,
     BrowserAnimationsModule,
     NbEvaIconsModule,
-    NbListModule,
+    NbListModule
   ],
   providers: [NbDialogService],
   bootstrap: [AppComponent],
