@@ -12,10 +12,12 @@ export class FichaVoluntadComponent {
   @Input() // <-----
   idvoluntad = '5da799de090ef383079d6633';
   resultado = [];
-  header: string;
   reputacion: number;
   nombre: string;
   voluntadid: string;
+  divisa: string;
+  monto: number;
+  voluntad: string;
   data: PropuestaModel[] = [];
 
   constructor(private service: PropuestasService) {
@@ -37,21 +39,18 @@ export class FichaVoluntadComponent {
     for (let index = 0; index < array.length; index++) {
       const element = array[index];
       this.resultado.push(element);
-
+      this.monto = element.voluntad.monto;
       this.resultado.push(element);
       this.reputacion = element.usuario.promedioCalif;
       this.nombre = element.usuario.nombre;
       this.voluntadid = element._id;
-      if ((element.voluntad.operacion = 1)) {
+      if (element.voluntad.operacion === 1) {
         console.log(element.voluntad.divisa.codigoISO);
-        this.header =
-          'COMPRO ' +
-          element.voluntad.divisa.codigoISO +
-          element.voluntad.monto;
+        this.voluntad = 'COMPRO ';
       } else {
-        this.header =
-          'VENDO ' + element.voluntad.divisa.codigoISO + element.voluntad.monto;
+        this.voluntad = 'VENDO ';
       }
+      this.divisa = element.voluntad.divisa.codigoISO;
       this.resultado[index].username = element.usuario.nombre;
       this.resultado[index].cotizacion = element.cotizacionOf;
       this.resultado[index].moneda = element.voluntad.divisa.codigoISO;

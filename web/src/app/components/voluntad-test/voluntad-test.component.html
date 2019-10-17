@@ -1,7 +1,7 @@
 <ul>
   <li *ngFor="let resultad of resultado">
-    <app-voluntad [header]="resultad.header" [reputacion]="resultad.reputacion" [usernombre]="resultad.nombre"
-      [voluntadid]="resultad.voluntadid">
+    <app-voluntad [divisa]="resultad.divisa" [reputacion]="resultad.reputacion" [usernombre]="resultad.nombre"
+      [voluntadid]="resultad.voluntadid" [monto]="resultad.monto" [voluntad]="resultad.voluntad">
     </app-voluntad>
   </li>
 </ul>
