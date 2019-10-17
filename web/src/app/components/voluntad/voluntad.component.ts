@@ -17,9 +17,12 @@ export class VoluntadComponent {
   @Input() // <-----
   voluntadid: string;
   data: VoluntadModel[] = [];
+  numbers: Array<number>;
 
   constructor(private service: VoluntadesService) {
     // this.getData();
+  
+    this.numbers = Array(3).fill(4); // [4,4,4,4,4]
   }
 
   // getData() {
