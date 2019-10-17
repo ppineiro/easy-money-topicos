@@ -6,7 +6,7 @@ module.exports = router => {
   router.post(
     '/propuestas',
     //authorization,
-    validators.create,
+    // validators.create,
     handlers.create,
   );
   router.get('/propuestas', validators.find, handlers.find);

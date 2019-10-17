@@ -1,3 +1,4 @@
+import { PropuestasComponent } from './components/propuestas/propuestas.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -34,7 +35,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ListaPropuestasAVoluntadesComponent } from './components/lista-propuestas-a-voluntades/lista-propuestas-a-voluntades.component';
 import { VoluntadesListaComponent } from './components/voluntades-lista/voluntades-lista.component';
 import { FichaVoluntadComponent } from './components/ficha-voluntad/ficha-voluntad.component';
 
@@ -47,8 +47,8 @@ import { FichaVoluntadComponent } from './components/ficha-voluntad/ficha-volunt
     LoadingComponent,
     DashboardComponent,
     NavbarComponent,
-    ListaPropuestasAVoluntadesComponent,
     VoluntadesListaComponent,
+    PropuestasComponent,
     FichaVoluntadComponent,
   ],
   imports: [

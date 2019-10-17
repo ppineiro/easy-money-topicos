@@ -9,19 +9,24 @@ import { Component, Input } from '@angular/core';
 })
 export class VoluntadComponent {
   @Input() // <-----
-  header: string;
+  divisa: string;
   @Input() // <-----
   reputacion: number;
   @Input() // <-----
   usernombre: string;
   @Input() // <-----
   voluntadid: string;
+  @Input() // <-----
+  monto: number;
+  @Input() // <-----
+  voluntad: string;
+
   data: VoluntadModel[] = [];
   numbers: Array<number>;
 
   constructor(private service: VoluntadesService) {
     // this.getData();
-  
+
     this.numbers = Array(3).fill(4); // [4,4,4,4,4]
   }
 

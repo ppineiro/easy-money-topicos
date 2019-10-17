@@ -10,9 +10,12 @@ import { Router } from '@angular/router';
 })
 export class VoluntadesListaComponent {
   data: VoluntadModel[] = [];
-  header: string;
+  divisa: string;
   reputacion: number;
 
+  usernombre: string;
+  monto: number;
+  voluntad: string;
   resultado = [];
 
   constructor(private service: VoluntadesService, private router: Router) {
@@ -35,14 +38,16 @@ export class VoluntadesListaComponent {
       this.resultado[index].reputacion = element.usuario.promedioCalif;
       this.resultado[index].nombre = element.usuario.nombre;
       this.resultado[index].id = element._id;
-      if ((element.operacion = 1)) {
-        this.resultado[index].header =
-          'COMPRO ' + element.divisa.codigoISO + element.monto;
+      this.resultado[index].monto = element.monto;
+      this.resultado[index].divisa = element.divisa.codigoISO;
+
+      if (element.operacion === 1) {
+        this.resultado[index].voluntad = 'COMPRO ';
       } else {
-        this.resultado[index].header =
-          'VENDO ' + element.divisa.codigoISO + element.monto;
+        this.resultado[index].voluntad = 'VENDO ';
       }
     }
+
     return this.resultado;
   }
 
