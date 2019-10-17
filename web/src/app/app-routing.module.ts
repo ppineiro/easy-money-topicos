@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'ingreso-voluntad', component: IngresoVoluntadComponent },
   { path: 'ficha-voluntad/:id', component: FichaVoluntadComponent },
+  { path: 'transaccion/:id', component: TransaccionComponent },
   { path: 'transaccion', component: TransaccionComponent },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: '' },

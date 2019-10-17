@@ -7,51 +7,55 @@ import { PropuestaModel } from 'src/app/services/models/propuesta.model';
 import { DivisasService } from 'src/app/services/divisas.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { VoluntadesService } from 'src/app/services/voluntades.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-transaccion',
   templateUrl: './transaccion.component.html',
   providers: [VoluntadesService, DivisasService, UsuariosService],
 })
-export class TransaccionComponent implements OnInit {
-  @Input() // <-----  propuestaid: string;
-  propuestaid: string;
-  @Input() // <-----  propuestaid: string;
-  voluntad: string;
-  @Input() // <-----  propuestaid: string;
-  califUsuarioVoluntad: number;
-  @Input() // <-----  propuestaid: string;
-  califUsuarioPropuesta: number;
-  transaccion: TransaccionModel;
-
+export class TransaccionComponent {
   fecha: Date;
+  voluntadid: string;
+  propuesta: string;
   cotizacionBCU: number;
+  califUsuarioVoluntad: number;
+  califUsuarioPropuesta: number;
 
   constructor(
-    private voluntadesService: VoluntadesService,
-    private divisasService: DivisasService,
     private transaccionService: TransaccionesService,
-  ) {}
-
-  ngOnInit() {}
-
-  crearTransaccionModel(): TransaccionCreateModel {
-    const voluntad: TransaccionCreateModel = {
-      voluntad: this.voluntad,
-      propuesta: this.propuestaid,
-      cotizacionBCU: this.cotizacionBCU,
-      califUsuarioVoluntad: this.califUsuarioVoluntad,
-      califUsuarioPropuesta: this.califUsuarioPropuesta,
-    };
-    return voluntad;
-  }
-
-  insertVoluntad() {
-    console.log(this.crearTransaccionModel());
-    this.transaccionService
-      .insertTransaccion(this.crearTransaccionModel())
-      .subscribe(resp => {
-        return (this.transaccion = resp);
+    private activatedRoute: ActivatedRoute,
+  ) {
+    this.activatedRoute.params.subscribe(params => {
+      this.transaccionService.getTransaccion(params.id).subscribe(res => {
+        const transaccion: TransaccionModel = res;
+        console.log(res);
+        this.voluntadid = transaccion.voluntad._id;
+        this.propuesta = transaccion.propuesta._id;
+        this.cotizacionBCU = transaccion.cotizacionBCU;
+        this.califUsuarioVoluntad = transaccion.califUsuarioVoluntad;
+        this.califUsuarioPropuesta = transaccion.califUsuarioPropuesta;
       });
+    });
   }
+
+  // crearTransaccionModel(): TransaccionCreateModel {
+  //   const voluntad: TransaccionCreateModel = {
+  //     voluntad: this.voluntad,
+  //     propuesta: this.propuestaid,
+  //     cotizacionBCU: this.cotizacionBCU,
+  //     califUsuarioVoluntad: this.califUsuarioVoluntad,
+  //     califUsuarioPropuesta: this.califUsuarioPropuesta,
+  //   };
+  //   return voluntad;
+  // }
+
+  // insertVoluntad() {
+  //   console.log(this.crearTransaccionModel());
+  //   this.transaccionService
+  //     .insertTransaccion(this.crearTransaccionModel())
+  //     .subscribe(resp => {
+  //       return (this.transaccion = resp);
+  //     });
+  // }
 }

@@ -1,5 +1,7 @@
 <nb-layout>
-  <nb-layout-header fixed><app-navbar></app-navbar></nb-layout-header>
+  <nb-layout-header fixed>
+    <app-navbar></app-navbar>
+  </nb-layout-header>
   <nb-layout-column>
     <nb-card>
       <nb-card-header>Datos de la transaccion</nb-card-header>
@@ -7,15 +9,15 @@
         <div>Propuesta</div>
         <!-- <td>{{ propuesta }}</td> -->
         <br /><br />
-        <div>Voluntad</div>
+        <div>Voluntad {{voluntadid}}</div>
         <br /><br />
-        <div>Fecha</div>
+        <div>Fecha {{fecha}}</div>
         <br /><br />
-        <div>Calificación del usuario voluntad</div>
+        <div>Calificación del usuario voluntad {{califUsuarioVoluntad}}</div>
         <br /><br />
-        <div>Calificación del usuario propuesta</div>
+        <div>Calificación del usuario propuesta {{califUsuarioPropuesta}}</div>
         <br /><br />
-        <div>Cotización del BCU</div>
+        <div>Cotización del BCU {{cotizacionBCU}}</div>
 
         <br />
 

@@ -33,6 +33,7 @@ export class PropuestaComponent {
     const transaccionNew: TransaccionCreateModel = {
       voluntad: this.voluntadid,
       propuesta: this.propuestaid,
+      fechaHora: '2014-10-19T16:36:14.197Z',
       cotizacionBCU: 32,
       califUsuarioVoluntad: 3,
       califUsuarioPropuesta: 4,
@@ -40,17 +41,15 @@ export class PropuestaComponent {
     return transaccionNew;
   }
 
-  insertVoluntad() {
-    console.log(this.crearTransaccionModel());
+  insertTransaccion() {
     this.transaccionService
       .insertTransaccion(this.crearTransaccionModel())
       .subscribe(resp => {
-        return (this.transaccion = resp);
+        this.router.navigateByUrl('/transaccion/' + resp._id);
       });
   }
   rechazar() {}
   aceptar() {
-    this.insertVoluntad();
-    this.router.navigateByUrl('/transaccion/' + this.transaccion._id);
+    this.insertTransaccion();
   }
 }
