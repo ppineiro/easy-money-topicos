@@ -1,7 +1,10 @@
+import { TransaccionModel } from './../../services/models/transaccion.model';
+import { TransaccionesService } from './../../services/transacciones.service';
 import { PropuestaModel } from './../../services/models/propuesta.model';
 import { PropuestasService } from './../../services/propuestas.service';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { TransaccionCreateModel } from 'src/app/services/models/transaccion.create.model';
 
 @Component({
   selector: 'app-propuesta',
@@ -9,18 +12,45 @@ import { Router } from '@angular/router';
   styleUrls: ['./propuesta.component.scss'],
 })
 export class PropuestaComponent {
+  @Input()
+  propuestaid: string;
+  @Input()
+  voluntadid: string;
   @Input() // <-----
   username: string;
   @Input() // <-----
   cotizacion: number;
   @Input() // <-----
   monto: number;
+  transaccion: TransaccionModel;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private transaccionService: TransaccionesService,
+  ) {}
 
+  crearTransaccionModel(): TransaccionCreateModel {
+    const transaccionNew: TransaccionCreateModel = {
+      voluntad: this.voluntadid,
+      propuesta: this.propuestaid,
+      cotizacionBCU: 32,
+      califUsuarioVoluntad: 3,
+      califUsuarioPropuesta: 4,
+    };
+    return transaccionNew;
+  }
+
+  insertVoluntad() {
+    console.log(this.crearTransaccionModel());
+    this.transaccionService
+      .insertTransaccion(this.crearTransaccionModel())
+      .subscribe(resp => {
+        return (this.transaccion = resp);
+      });
+  }
   rechazar() {}
-
   aceptar() {
-    this.router.navigateByUrl('/transaccion');
+    this.insertVoluntad();
+    this.router.navigateByUrl('/transaccion/' + this.transaccion._id);
   }
 }

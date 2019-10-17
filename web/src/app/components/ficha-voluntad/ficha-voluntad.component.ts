@@ -34,6 +34,7 @@ export class FichaVoluntadComponent {
         this.monto = voluntad.monto;
         this.nombre = voluntad.usuario.nombre;
         this.reputacion = voluntad.usuario.promedioCalif;
+
         if (voluntad.operacion === 1) {
           this.voluntad = 'COMPRO ';
         } else {
@@ -60,7 +61,8 @@ export class FichaVoluntadComponent {
     for (let index = 0; index < array.length; index++) {
       const element = array[index];
       this.resultado.push(element);
-
+      this.resultado[index].propuestaid = element._id;
+      this.resultado[index].voluntadid = element.voluntad._id;
       this.resultado[index].username = element.usuario.nombre;
       this.resultado[index].cotizacion = element.cotizacionOf;
       this.resultado[index].monto = this.monto;

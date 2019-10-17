@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { TransaccionCreateModel } from './../../services/models/transaccion.create.model';
+import { TransaccionModel } from './../../services/models/transaccion.model';
+import { TransaccionesService } from './../../services/transacciones.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { PropuestaComponent } from '../propuesta/propuesta.component';
 import { PropuestaModel } from 'src/app/services/models/propuesta.model';
 import { DivisasService } from 'src/app/services/divisas.service';
@@ -11,20 +14,44 @@ import { VoluntadesService } from 'src/app/services/voluntades.service';
   providers: [VoluntadesService, DivisasService, UsuariosService],
 })
 export class TransaccionComponent implements OnInit {
-  propuesta: string;
+  @Input() // <-----  propuestaid: string;
+  propuestaid: string;
+  @Input() // <-----  propuestaid: string;
   voluntad: string;
-  fecha: Date;
+  @Input() // <-----  propuestaid: string;
   califUsuarioVoluntad: number;
+  @Input() // <-----  propuestaid: string;
   califUsuarioPropuesta: number;
+  transaccion: TransaccionModel;
+
+  fecha: Date;
   cotizacionBCU: number;
 
   constructor(
     private voluntadesService: VoluntadesService,
     private divisasService: DivisasService,
-    private usuariosService: UsuariosService,
+    private transaccionService: TransaccionesService,
   ) {}
 
   ngOnInit() {}
 
-  llenarDatos() {}
+  crearTransaccionModel(): TransaccionCreateModel {
+    const voluntad: TransaccionCreateModel = {
+      voluntad: this.voluntad,
+      propuesta: this.propuestaid,
+      cotizacionBCU: this.cotizacionBCU,
+      califUsuarioVoluntad: this.califUsuarioVoluntad,
+      califUsuarioPropuesta: this.califUsuarioPropuesta,
+    };
+    return voluntad;
+  }
+
+  insertVoluntad() {
+    console.log(this.crearTransaccionModel());
+    this.transaccionService
+      .insertTransaccion(this.crearTransaccionModel())
+      .subscribe(resp => {
+        return (this.transaccion = resp);
+      });
+  }
 }
