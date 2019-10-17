@@ -17,7 +17,7 @@ import { ActivatedRoute } from '@angular/router';
 export class TransaccionComponent {
   fecha: Date;
   voluntadid: string;
-  propuesta: string;
+  propuestaid: string;
   cotizacionBCU: number;
   califUsuarioVoluntad: number;
   califUsuarioPropuesta: number;
@@ -31,7 +31,8 @@ export class TransaccionComponent {
         const transaccion: TransaccionModel = res;
         console.log(res);
         this.voluntadid = transaccion.voluntad._id;
-        this.propuesta = transaccion.propuesta._id;
+        this.propuestaid = transaccion.propuesta._id;
+        this.fecha = transaccion.fechaHora;
         this.cotizacionBCU = transaccion.cotizacionBCU;
         this.califUsuarioVoluntad = transaccion.califUsuarioVoluntad;
         this.califUsuarioPropuesta = transaccion.califUsuarioPropuesta;

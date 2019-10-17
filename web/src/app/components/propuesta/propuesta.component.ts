@@ -33,7 +33,6 @@ export class PropuestaComponent {
     const transaccionNew: TransaccionCreateModel = {
       voluntad: this.voluntadid,
       propuesta: this.propuestaid,
-      fechaHora: '2014-10-19T16:36:14.197Z',
       cotizacionBCU: 32,
       califUsuarioVoluntad: 3,
       califUsuarioPropuesta: 4,
