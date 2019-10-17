@@ -1,4 +1,3 @@
-import { PropuestasComponent } from './components/propuestas/propuestas.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -49,7 +48,6 @@ import { PropuestaComponent } from './components/propuesta/propuesta.component';
     DashboardComponent,
     NavbarComponent,
     VoluntadesListaComponent,
-    PropuestasComponent,
     FichaVoluntadComponent,
     PropuestaComponent,
   ],

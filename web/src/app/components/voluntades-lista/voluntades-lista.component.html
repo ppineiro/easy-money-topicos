@@ -1,9 +1,12 @@
 <ul>
   <li *ngFor="let r of resultado">
     <app-voluntad
-      [reputacion]="r.reputacion"
-      [usernombre]="r.nombre"
       [voluntadid]="r.id"
+      [voluntad]="r.voluntad"
+      [usernombre]="r.nombre"
+      [reputacion]="r.reputacion"
+      [divisa]="r.divisa"
+      [monto]="r.monto"
     >
     </app-voluntad>
     <button nbButton shape="round" (click)="verVoluntad(r.id)">

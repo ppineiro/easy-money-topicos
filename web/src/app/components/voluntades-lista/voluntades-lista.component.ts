@@ -10,12 +10,13 @@ import { Router } from '@angular/router';
 })
 export class VoluntadesListaComponent {
   data: VoluntadModel[] = [];
-  divisa: string;
-  reputacion: number;
 
-  usernombre: string;
-  monto: number;
   voluntad: string;
+  usernombre: string;
+  reputacion: number;
+  divisa: string;
+  monto: number;
+
   resultado = [];
 
   constructor(private service: VoluntadesService, private router: Router) {
@@ -55,6 +56,6 @@ export class VoluntadesListaComponent {
     let voluntadId;
     voluntadId = this.resultado[0].id;
 
-    this.router.navigate(['/voluntad', voluntadId]);
+    this.router.navigate(['/ficha-voluntad', voluntadId]);
   }
 }

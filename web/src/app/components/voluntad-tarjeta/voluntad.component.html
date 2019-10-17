@@ -1,13 +1,10 @@
 <div class="card-row">
   <div class="card-col">
     <nb-card size="small" status="success">
-      <nb-card-header>{{ voluntad }} </nb-card-header>
+      <nb-card-header>#{{ voluntadid }}</nb-card-header>
       <nb-card-body>
-        <h3>Nombre del usuario: {{ usernombre }}</h3>
-        <h4>
-          Divisa: {{ divisa }} <br />
-          Monto: {{ monto }}
-        </h4>
+        <h4>{{ voluntad }} {{ divisa }} {{ monto }}!</h4>
+        <h4>Nombre: {{ usernombre }}</h4>
       </nb-card-body>
       <nb-card-footer align="right">
         <div class="calificacion">

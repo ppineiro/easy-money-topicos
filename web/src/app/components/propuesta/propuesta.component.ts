@@ -3,7 +3,7 @@ import { PropuestasService } from './../../services/propuestas.service';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'propuesta',
+  selector: 'app-propuesta',
   templateUrl: './propuesta.component.html',
   styleUrls: ['./propuesta.component.scss'],
 })
@@ -12,8 +12,12 @@ export class PropuestaComponent {
   username: string;
   @Input() // <-----
   cotizacion: number;
-
   @Input() // <-----
-  moneda: string;
-  constructor() {}
+  monto: number;
+
+  total: number;
+
+  constructor() {
+    this.total = this.cotizacion * this.monto;
+  }
 }

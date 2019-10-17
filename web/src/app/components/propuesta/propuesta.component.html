@@ -1,9 +1,11 @@
 <div class="card-row">
   <div class="card-col">
     <nb-card size="tiny" status="warning">
-      <nb-card-header>{{username}}</nb-card-header> <br />
-      Cotización ofrecida: {{cotizacion}} <br />
-      Moneda ofrecida: {{moneda}} <br />
+      <nb-card-header>{{username}}</nb-card-header>
+      <nb-card-body>
+         <h4>Cotización ofrecida: {{cotizacion}}</h4> 
+         <h4>Total: {{total}}</h4> 
+        </nb-card-body>
       <div class="btn-group">
         <button class="rechazar">Rechazar</button>
         <button class="aceptar">Aceptar</button>

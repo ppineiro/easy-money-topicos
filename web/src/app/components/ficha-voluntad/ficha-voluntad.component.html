@@ -1,19 +1,20 @@
+<nb-layout-header fixed><app-navbar></app-navbar></nb-layout-header>
 <app-voluntad
-  [divisa]="divisa"
-  [reputacion]="reputacion"
-  [usernombre]="nombre"
   [voluntadid]="voluntadid"
-  [monto]="monto"
   [voluntad]="voluntad"
+  [usernombre]="nombre"
+  [reputacion]="reputacion"
+  [divisa]="divisa"
+  [monto]="monto"
 >
 </app-voluntad>
 <ul>
-  <li *ngFor="let resultad of resultado">
-    <propuesta
-      [username]="resultad.username"
-      [cotizacion]="resultad.cotizacion"
-      [moneda]="resultad.moneda"
+  <li *ngFor="let r of resultado">
+    <app-propuesta
+      [username]="r.username"
+      [cotizacion]="r.cotizacion"
+      [monto]="r.monto"
     >
-    </propuesta>
+    </app-propuesta>
   </li>
 </ul>
