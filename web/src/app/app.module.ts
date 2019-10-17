@@ -1,3 +1,4 @@
+import { PropuestasComponent } from './components/propuestas/propuestas.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -39,8 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ListaPropuestasAVoluntadesComponent } from './components/lista-propuestas-a-voluntades/lista-propuestas-a-voluntades.component';
 import { VoluntadTestComponent } from './components/voluntad-test/voluntad-test.component';
+import { FichaVoluntadComponent } from './components/ficha-voluntad/ficha-voluntad.component';
 
 @NgModule({
   declarations: [
@@ -56,8 +57,9 @@ import { VoluntadTestComponent } from './components/voluntad-test/voluntad-test.
     LoadingComponent,
     DashboardComponent,
     NavbarComponent,
-    ListaPropuestasAVoluntadesComponent,
     VoluntadTestComponent,
+    PropuestasComponent,
+    FichaVoluntadComponent,
   ],
   imports: [
     HttpClientModule, // import the module

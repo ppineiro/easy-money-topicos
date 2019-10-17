@@ -1,0 +1,8 @@
+<app-voluntad [header]="header" [reputacion]="reputacion" [usernombre]="nombre" [voluntadid]="voluntadid">
+</app-voluntad>
+<ul>
+  <li *ngFor="let resultad of resultado">
+    <propuesta [username]="resultad.username" [cotizacion]="resultad.cotizacion" [moneda]="resultad.moneda">
+    </propuesta>
+  </li>
+</ul>
