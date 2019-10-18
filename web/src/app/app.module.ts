@@ -37,6 +37,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VoluntadesListaComponent } from './components/voluntades-lista/voluntades-lista.component';
 import { FichaVoluntadComponent } from './components/ficha-voluntad/ficha-voluntad.component';
 import { PropuestaComponent } from './components/propuesta/propuesta.component';
+import { DivisaComponent } from './components/divisa/divisa.component';
 import { TransaccionComponent } from './components/transaccion/transaccion.component';
 
 @NgModule({
@@ -50,6 +51,7 @@ import { TransaccionComponent } from './components/transaccion/transaccion.compo
     VoluntadesListaComponent,
     FichaVoluntadComponent,
     PropuestaComponent,
+    DivisaComponent,
     TransaccionComponent,
   ],
   imports: [

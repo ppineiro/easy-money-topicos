@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IngresoVoluntadComponent } from './components/ingreso-voluntad/ingreso-voluntad.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TransaccionComponent } from './components/transaccion/transaccion.component';
+import { DivisaComponent } from './components/divisa/divisa.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'ficha-voluntad/:id', component: FichaVoluntadComponent },
   { path: 'transaccion/:id', component: TransaccionComponent },
   { path: 'transaccion', component: TransaccionComponent },
+  { path: 'divisa', component: DivisaComponent },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: '' },
 ];
