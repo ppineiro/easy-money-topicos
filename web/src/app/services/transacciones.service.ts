@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TransaccionModel } from './models/transaccion.model';
 import { TransaccionCreateModel } from './models/transaccion.create.model';
+import { Transaccion2Model } from './models/transaccion2.model';
 
 const API_URL = 'http://localhost:8000/transacciones';
 
@@ -20,6 +21,9 @@ export class TransaccionesService {
 
   getTransaccion(id: string): Observable<TransaccionModel> {
     return this.http.get<TransaccionModel>(`${API_URL}/${id}`);
+  }
+  getTransaccion2(id: string): Observable<Transaccion2Model> {
+    return this.http.get<Transaccion2Model>(`${API_URL}/${id}`);
   }
 
   getTransaccionesPorVoluntad(

@@ -1,9 +1,9 @@
 import { UsuarioModel } from './usuario.model';
 import { DivisaModel } from './divisa.model';
 
-export class VoluntadModel {
+export class Voluntad2Model {
   _id: string;
-  usuario: UsuarioModel;
+  usuario: string;
   divisa: DivisaModel;
   monto: number;
   operacion: number;

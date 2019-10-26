@@ -17,7 +17,7 @@ import { OlvidoPasswordComponent } from './olvido-password/olvido-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http';
-import { JwtModule } from '@auth0/angular-jwt';
+// import { JwtModule } from '@auth0/angular-jwt';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
