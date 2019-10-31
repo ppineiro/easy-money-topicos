@@ -1,9 +1,8 @@
-import { RateBrouModel } from './ratebrou.model';
+import {Rates} from "./rates.model";
 
-export class DivisaModel {
+export class DivisaBrouModel {
   base: string;
   timestamp: number;
-  rates: RateBrouModel[];
-  _v: number;
+  rates: Rates;
 }
 
